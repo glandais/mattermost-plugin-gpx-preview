@@ -24,7 +24,7 @@ export default class FilePreviewOverride extends React.Component<Props, State> {
             then((r) => r.text()).
             then((gpx) => {
                 const formData = new FormData();
-                var gpxBlob = new Blob([gpx], { type: "text/xml"});
+                const gpxBlob = new Blob([gpx], {type: 'text/xml'});
                 formData.append('form-map-gpx', gpxBlob);
                 return fetch('https://gpx.tomacla.info/', {
                     method: 'post',
