@@ -1,6 +1,7 @@
 import {connect} from 'react-redux';
 
-import {GlobalState} from '@mattermost/types/store';
+import type {GlobalState} from '@mattermost/types/store';
+
 import {getTheme} from 'mattermost-redux/selectors/entities/preferences';
 
 import GpxPreviewOverride from './gpx_preview_override';

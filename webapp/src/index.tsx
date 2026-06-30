@@ -1,15 +1,12 @@
-import {Store} from 'redux';
+import type {Store} from 'redux';
 
-import {GlobalState} from '@mattermost/types/store';
-
-import {FileInfo} from '@mattermost/types/files';
-
-import manifest from './manifest';
+import type {FileInfo} from '@mattermost/types/files';
+import type {GlobalState} from '@mattermost/types/store';
 
 import GpxPreviewOverride from './components/gpx_preview_override';
-
+import manifest from './manifest';
 // eslint-disable-next-line import/no-unresolved
-import {PluginRegistry} from './types/mattermost-webapp';
+import type {PluginRegistry} from './types/mattermost-webapp';
 
 export default class Plugin {
     // eslint-disable-next-line @typescript-eslint/no-unused-vars, @typescript-eslint/no-empty-function
@@ -24,7 +21,7 @@ export default class Plugin {
 
 declare global {
     interface Window {
-        registerPlugin(id: string, plugin: Plugin): void
+        registerPlugin(id: string, plugin: Plugin): void;
     }
 }
 

@@ -1,9 +1,9 @@
 import React from 'react';
-
-import {FileInfo} from '@mattermost/types/files';
-import {Theme} from 'mattermost-redux/selectors/entities/preferences';
-
 import Iframe from 'react-iframe';
+
+import type {FileInfo} from '@mattermost/types/files';
+
+import type {Theme} from 'mattermost-redux/selectors/entities/preferences';
 
 type Props = {
     fileInfo: FileInfo;
@@ -50,8 +50,6 @@ export default class FilePreviewOverride extends React.Component<Props, State> {
             backgroundColor: theme.buttonBg,
             color: theme.buttonColor,
         };
-
-        const content = JSON.stringify(this.props.fileInfo);
 
         return (
             <div style={style}>
