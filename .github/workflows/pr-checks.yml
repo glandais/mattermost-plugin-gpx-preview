@@ -25,6 +25,7 @@ jobs:
           node-version: '13.14'
           cache: npm
           cache-dependency-path: webapp/package-lock.json
+      - run: git config --global url."https://github.com/".insteadOf "ssh://git@github.com/"
       - run: npm ci
         working-directory: webapp
       - run: npm run lint --if-present
