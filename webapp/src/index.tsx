@@ -1,8 +1,8 @@
-import {Store, Action} from 'redux';
+import {Store} from 'redux';
 
-import {GlobalState} from 'mattermost-redux/types/store';
+import {GlobalState} from '@mattermost/types/store';
 
-import {FileInfo} from 'mattermost-redux/types/files';
+import {FileInfo} from '@mattermost/types/files';
 
 import manifest from './manifest';
 
@@ -13,9 +13,12 @@ import {PluginRegistry} from './types/mattermost-webapp';
 
 export default class Plugin {
     // eslint-disable-next-line @typescript-eslint/no-unused-vars, @typescript-eslint/no-empty-function
-    public async initialize(registry: PluginRegistry, store: Store<GlobalState, Action<Record<string, unknown>>>) {
+    public async initialize(registry: PluginRegistry, store: Store<GlobalState>) {
         // @see https://developers.mattermost.com/extend/plugins/webapp/reference/
-        registry.registerFilePreviewComponent((fileInfo: FileInfo) => fileInfo.extension === 'gpx', GpxPreviewOverride);
+        registry.registerFilePreviewComponent(
+            (fileInfos: FileInfo[]) => fileInfos.every((fileInfo) => fileInfo.extension === 'gpx'),
+            GpxPreviewOverride,
+        );
     }
 }
 
